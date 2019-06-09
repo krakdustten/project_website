@@ -132,7 +132,7 @@ class UserManagerCon extends Controller
         $data_string = json_encode($dataArray);
 
         if($post){
-            $ch = curl_init('http://127.0.0.1:8180/user_manager/rest' . $functionL);
+            $ch = curl_init('http://35.181.131.32/rest' . $functionL);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -146,7 +146,7 @@ class UserManagerCon extends Controller
                 $functionL = $functionL . $key . "=" . $value . "&";
             }
             $functionL = substr($functionL, 0, -1);
-            $ch = curl_init('http://127.0.0.1:5000' . $functionL);
+            $ch = curl_init('http://35.181.131.32/rest' . $functionL);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         }
         $result = curl_exec($ch);

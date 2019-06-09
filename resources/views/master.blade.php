@@ -21,28 +21,24 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/project_website/public/">Buy together</a>
+    <a class="navbar-brand" href="/public/">Buy together</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar" aria-controls="topNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="topNavbar">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orders</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="#">Create order</a>
-                    <a class="dropdown-item" href="/project_website/public/list/userlists/">Your Orders</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/public/list/userlists/">Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project_website/public/group/groups/">Groups</a>
+                <a class="nav-link" href="/public/group/groups/">Groups</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project_website/public/user/friends/">Friends</a>
+                <a class="nav-link" href="/public/user/friends/">Friends</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project_website/public//user/messages/">Messages</a>
+                <a class="nav-link" href="/public//user/messages/">Messages</a>
             </li>
             <li class="nav-item" id="navAdmin">
 
@@ -74,10 +70,10 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="/project_website/public/js/crypto.js"></script>
-<script src="/project_website/public/js/form_validation.js"></script>
-<script src="/project_website/public/js/user_management.js"></script>
-<script src="/project_website/public/js/list_manager.js"></script>
+<script src="/public/js/crypto.js"></script>
+<script src="/public/js/form_validation.js"></script>
+<script src="/public/js/user_management.js"></script>
+<script src="/public/js/list_manager.js"></script>
 
 <script type="text/javascript">
     function checkUserLogin(redirect_register = true){
@@ -90,18 +86,18 @@
                 "            <span class=\"input-group-text\">👤</span>\n" +
                 "        </div>\n" +
                 "        <div class=\"input-group-append\">\n" +
-                "            <button type=\"button\" class=\"btn btn-secondary\" onclick=\"window.location.href = '/project_website/public/user/';\">" + getUserName() + "</button>\n" +
+                "            <button type=\"button\" class=\"btn btn-secondary\" onclick=\"window.location.href = '/public/user/';\">" + getUserName() + "</button>\n" +
                 "            <button type=\"button\" class=\"btn btn-outline-primary\" onclick=\"logout();reload_page()\">Logout</button>\n" +
                 "        </div>\n" +
                 "    </div>\n" +
                 "</form>";
             if(user_isAdmin()){
                 let navAdmin = document.getElementById("navAdmin");
-                navAdmin.innerHTML = "<a class=\"nav-link\" href=\"/project_website/public//admin/\">Admin</a>"
+                navAdmin.innerHTML = "<a class=\"nav-link\" href=\"/public//admin/\">Admin</a>"
             }
         }
         else if(redirect_register){
-           window.location.href = "/project_website/public/user/register/";
+           window.location.href = "/public/user/register/";
         }
         else{
             endOfNav.innerHTML =

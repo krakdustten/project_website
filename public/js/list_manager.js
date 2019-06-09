@@ -208,10 +208,10 @@ function export_full_list(id) {
 
 function getJsonResponseL(type, datas){
     let urlString = "&";
-    for (let key in datas) urlString = urlString + key + "=" + datas[key] + "&";
+    for (let key in datas) urlString = urlString + key + "=" + encodeURIComponent(datas[key]) + "&";
     urlString = urlString.substring(0, urlString.length-1);
 
-    return fetch('/project_website/public/Listings_manager/?function=' + type + urlString)
+    return fetch('/public/Listings_manager/?function=' + type + urlString)
         .then(function (response) {
             return response.json();
         });
@@ -219,17 +219,17 @@ function getJsonResponseL(type, datas){
 
 function getFileResponseL(type, datas){
     let urlString = "&";
-    for (let key in datas) urlString = urlString + key + "=" + datas[key] + "&";
+    for (let key in datas) urlString = urlString + key + "=" + encodeURIComponent(datas[key]) + "&";
     urlString = urlString.substring(0, urlString.length-1);
 
-    window.open('/project_website/public/Listings_manager/?function=' + type + urlString);
+    window.open('/public/Listings_manager/?function=' + type + urlString);
 
 
     /*let urlString = "&";
     for (let key in datas) urlString = urlString + key + "=" + datas[key] + "&";
     urlString = urlString.substring(0, urlString.length-1);
 
-    return fetch('/project_website/public/Listings_manager/?function=' + type + urlString)
+    return fetch('/public/Listings_manager/?function=' + type + urlString)
         .then(async res => ({
             filename: 'file.xslx',
             blob: await res.blob()

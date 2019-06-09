@@ -17,7 +17,7 @@ class CompManagerCon extends Controller
         CompManagerCon::$soapWrapper = new SoapWrapper();
         CompManagerCon::$soapWrapper->add('ComponentService', function ($service){
             $service
-                ->wsdl('http://localhost:5150/ComponentService.asmx?WSDL')
+                ->wsdl('http://52.47.57.218/ComponentService.asmx?WSDL')
                 ->trace(true)
                 ->classmap([
                     GetComponentFromLinkRequest::class,

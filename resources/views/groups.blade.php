@@ -36,7 +36,7 @@
                     "    <div class=\"card h-100\">\n" +
                     "        <div class=\"card-body\">\n" +
                     "            <h4 class=\"card-title\">\n" +
-                    "                <a href=\"/project_website/public/group/group?name=" + group.name + "\">" + group.name + "</a>\n" +
+                    "                <a href=\"/public/group/group?name=" + group.name + "\">" + group.name + "</a>\n" +
                     "            </h4>\n" +
                     "            <h6 class=\"card-subtitle mb-2 text-muted\">\n" +
                     "                " + rights + "\n" +

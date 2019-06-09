@@ -58,7 +58,7 @@
                     "            <h4 class=\"card-title\">\n" +
                     "                " + team.name + "\n" +
                     "            </h4>\n" +
-                    "        <button class=\"btn btn-outline-danger\" type=\"button\" onclick=\"remove_list_team(" + id + ", '" + team.name + "', new function(){window.location.href = '/project_website/public/'})\">Remove</button>\n" +
+                    "        <button class=\"btn btn-outline-danger\" type=\"button\" onclick=\"remove_list_team(" + id + ", '" + team.name + "', new function(){window.location.href = '/public/'})\">Remove</button>\n" +
                     "        </div>\n" +
                     "    </div>\n" +
                     "</div>";
@@ -69,10 +69,10 @@
 
         function repopulate(){
             if(group == true){
-                backlink = "/project_website/public/list/list?group=true&name=" + name + "&id=" + id;
+                backlink = "public/list/list?group=true&name=" + name + "&id=" + id;
                 get_group_list(name, id, populate);
             }else{
-                backlink = "/project_website/public/list/list?group=false&id=" + id;
+                backlink = "/public/list/list?group=false&id=" + id;
                 get_user_list(id, populate);
             }
         }

@@ -17,17 +17,22 @@ class ExportController extends Controller
             $min_price_per_piece = 100000000;
 
             foreach ($v['prices'] as $kp=>$vp){
-                if($vp['amount'] < $minimum_amount)
+                if($vp['amount'] < $minimum_amount){
                     $minimum_amount = $vp['amount'];
-                if($vp['price'] < $price_per_piece){
-                    if($vp['amount'] <= $v['useramount'])
+                    $min_price_per_piece = $vp['price'];
+                }
+            }
+
+            if ($price_per_piece >= 100000000)
+                $price_per_piece = $min_price_per_piece;
+
+            $buy_amount = ceil($v['useramount'] / $minimum_amount) * $minimum_amount;
+            foreach ($v['prices'] as $kp=>$vp){
+                if($vp['amount'] <= $buy_amount){
+                    if($vp['price'] <= $price_per_piece)
                         $price_per_piece = $vp['price'];
                 }
-                if($vp['price'] < $min_price_per_piece)
-                    $min_price_per_piece = $vp['price'];
             }
-            if($price_per_piece >= 100000000)
-                $price_per_piece = $min_price_per_piece;
 
             $subd = array(
                 $v['link'],
@@ -73,17 +78,22 @@ class ExportController extends Controller
             $min_price_per_piece = 100000000;
 
             foreach ($v['prices'] as $kp=>$vp){
-                if($vp['amount'] < $minimum_amount)
+                if($vp['amount'] < $minimum_amount){
                     $minimum_amount = $vp['amount'];
-                if($vp['price'] < $price_per_piece){
-                    if($vp['amount'] <= $v['amount'])
+                    $min_price_per_piece = $vp['price'];
+                }
+            }
+
+            if ($price_per_piece >= 100000000)
+                $price_per_piece = $min_price_per_piece;
+
+            $buy_amount = ceil($v['amount'] / $minimum_amount) * $minimum_amount;
+            foreach ($v['prices'] as $kp=>$vp){
+                if($vp['amount'] <= $buy_amount){
+                    if($vp['price'] <= $price_per_piece)
                         $price_per_piece = $vp['price'];
                 }
-                if($vp['price'] < $min_price_per_piece)
-                    $min_price_per_piece = $vp['price'];
             }
-            if($price_per_piece >= 100000000)
-                $price_per_piece = $min_price_per_piece;
 
             $subd = array(
                 $v['link'],
@@ -124,7 +134,7 @@ class ExportController extends Controller
         $data_string = json_encode($dataArray);
 
         if($post){
-            $ch = curl_init('http://127.0.0.1:5000');
+            $ch = curl_init('http://35.181.159.77:5000');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

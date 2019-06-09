@@ -39,7 +39,7 @@
                     "                    <button class=\"btn btn-outline-danger\" type=\"button\" onclick=\"remove_group('" + groupname + "', redirect)\">Remove group</button>\n" +
                     "                </div>\n" +
                     "            </div>\n" +
-                    "            <a class=\"btn btn-outline-primary\"  href=\"/project_website/public/list/grouplists?name=" + groupname + "\">Show Order lists</a>\n" +
+                    "            <a class=\"btn btn-outline-primary\"  href=\"/public/list/grouplists?name=" + groupname + "\">Show Order lists</a>\n" +
                     "        </div>\n" +
                     "    </div>";
             }else if(grights >= 100){//Moderator
@@ -116,7 +116,7 @@
         }
 
         function redirect(){
-            window.location.href = "/project_website/public/group/groups/";
+            window.location.href = "/public/group/groups/";
         }
 
         var groupname = findGetParameter("name")

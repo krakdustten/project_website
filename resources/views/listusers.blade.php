@@ -105,10 +105,10 @@
 
         function repopulate(){
             if(group == true){
-                backlink = "/project_website/public/list/list?group=true&name=" + name + "&id=" + id;
+                backlink = "/public/list/list?group=true&name=" + name + "&id=" + id;
                 get_group_list(name, id, populate);
             }else{
-                backlink = "/project_website/public/list/list?group=false&id=" + id;
+                backlink = "/public/list/list?group=false&id=" + id;
                 get_user_list(id, populate);
             }
         }

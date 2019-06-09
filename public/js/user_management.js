@@ -314,10 +314,10 @@ function findGetParameter(parameterName) {
 
 function getJsonResponseU(type, datas){
     let urlString = "&";
-    for (let key in datas) urlString = urlString + key + "=" + datas[key] + "&";
+    for (let key in datas) urlString = urlString + key + "=" + encodeURIComponent(datas[key]) + "&";
     urlString = urlString.substring(0, urlString.length-1);
 
-    return fetch('/project_website/public/user_manager/?function=' + type + urlString)
+    return fetch('/public/user_manager/?function=' + type + urlString)
         .then(function (response) {
             return response.json();
         });

@@ -155,8 +155,8 @@
 
             returning_input_group.innerHTML =
                 "<div class=\"input-group-prepend\">\n" +
-                "    <a class=\"btn btn-outline-primary\" href=\"/project_website/public/list/teams" + link_data + "\">Groups</a>\n" +
-                "    <a class=\"btn btn-outline-primary\" href=\"/project_website/public/list/users" + link_data + "\">Users</a>\n" +
+                "    <a class=\"btn btn-outline-primary\" href=\"/public/list/teams" + link_data + "\">Groups</a>\n" +
+                "    <a class=\"btn btn-outline-primary\" href=\"/public/list/users" + link_data + "\">Users</a>\n" +
                 "</div>\n" +
                 "<div class=\"input-group-append\">\n" +
                 (grights >= 2500 ? "    <button class=\"btn btn-outline-danger\" type=\"button\" onclick=\"remove_list(" + id + ", redirectTo)\">Remove list</button>\n" : "" )+
@@ -317,7 +317,7 @@
             prices = prices.substr(0, prices.length - 1);
 
             add_item(id, item.Vendername, item.VerderComponentNumber, item.Manufacturer, item.ManufacturerNumber,
-                prices, encodeURIComponent(item.Link), 1, repopulate);
+                prices, item.Link, 1, repopulate);
         }
 
         function NI2_get_information_click(){
@@ -360,7 +360,7 @@
         }
 
         function redirectTo(){
-            window.location.href = "/project_website/public/";
+            window.location.href = "/public/";
         }
 
         function populate_old(){
@@ -373,7 +373,7 @@
         function repopulate(){
             if(group == true){
                 link_data = "?group=true&name=" + name + "&id=" + id;
-                get_group_list(name, id, populate);
+                get_user_list(id, populate);
             }else{
                 link_data = "?group=false&id=" + id;
                 get_user_list(id, populate);
